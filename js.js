@@ -3,7 +3,31 @@
 // ex. reverseString('hello') === 'olleh'
 
 function reverseString(str) {
-  return 'Let\'s Start'
+  // Long way of solution for explaining.
+  // const myArr = str.split('');
+  // myArr.reverse();
+  // return myArr.join('');
+
+  // Refactored with reverse() method
+  //return str.split('').reverse().join('');
+
+  // No reverse() method
+  // let revString = '';
+  // for(let i = str.length - 1; i >= 0; i--){
+  //   revString = revString + str[i];
+  // }
+  // return revString;
+
+  // Using char
+  // let revString = '';
+  // for(let char of str){
+  //   revString = char + revString;
+  // }
+  // return revString;
+
+  let revString = '';
+  str.split('').forEach(char =>revString = char + revString);
+  return revString;
 }
 
 
@@ -12,7 +36,10 @@ function reverseString(str) {
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-function isPalindrome(str) {}
+function isPalindrome(str) {
+  const revString = str.split('').reverse().join('');
+  return revString === str;
+}
 
 
 
@@ -20,7 +47,11 @@ function isPalindrome(str) {}
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 
-function reverseInt(int) {}
+function reverseInt(int) {
+  const revString = int.toString().split('').reverse().join('');
+
+  return parseInt(revString);
+}
 
 
 
@@ -45,6 +76,6 @@ function fizzBuzz() {}
 
 
 // Call Function
-const output = reverseString('hello');
+const output = isPalindrome('racecar');
 
 console.log(output);
